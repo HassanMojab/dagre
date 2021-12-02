@@ -1,8 +1,9 @@
 {
-  "name": "dagrejs",
-  "version": "0.2.1",
+  "name": "@hassanmojab/dagre",
+  "version": "0.1.0",
   "description": "Layered layout for directed acyclic graph",
   "license": "MIT",
+  "author": "M.Hassan Mojab",
   "main": "index.js",
   "keywords": [
     "graph",
@@ -35,6 +36,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/brickmaker/dagre.git"
+    "url": "https://github.com/HassanMojab/dagre.git"
   }
 }
