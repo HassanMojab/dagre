@@ -1,5 +1,10 @@
+.DS_Store
+.vscode
+/assets
 /bench
 /build
+/examples
+/lib
 /Makefile
 /node_modules
 /src

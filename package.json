@@ -4,7 +4,7 @@
   "description": "Layered layout for directed acyclic graph",
   "license": "MIT",
   "author": "M.Hassan Mojab",
-  "main": "index.js",
+  "main": "dist/dagre.js",
   "keywords": [
     "graph",
     "layout"

@@ -15,7 +15,7 @@ BUILD_DIR = build
 COVERAGE_DIR = $(BUILD_DIR)/cov
 DIST_DIR = dist
 
-SRC_FILES = index.js lib/version.js $(shell find lib -type f -name '*.js')
+SRC_FILES = lib/index.js lib/version.js $(shell find lib -type f -name '*.js')
 TEST_FILES = $(shell find test -type f -name '*.js' | grep -v 'bundle-test.js')
 BUILD_FILES = $(addprefix $(BUILD_DIR)/, \
 						$(MOD).js $(MOD).min.js \
@@ -52,22 +52,19 @@ lint:
 	@$(JSHINT) $(JSHINT_OPTS) $(filter-out node_modules, $?)
 	@$(ESLINT) $(SRC_FILES) $(TEST_FILES)
 
-# $(BUILD_DIR)/$(MOD).js: index.js $(SRC_FILES) | unit-test
-$(BUILD_DIR)/$(MOD).js: index.js $(SRC_FILES)
+$(BUILD_DIR)/$(MOD).js: lib/index.js $(SRC_FILES) | unit-test
 	@$(BROWSERIFY) $< > $@ -s dagre
 
 $(BUILD_DIR)/$(MOD).min.js: $(BUILD_DIR)/$(MOD).js
 	@$(UGLIFY) $< --comments '@license' > $@
 
-# $(BUILD_DIR)/$(MOD).core.js: index.js $(SRC_FILES) | unit-test
-$(BUILD_DIR)/$(MOD).core.js: index.js $(SRC_FILES)
+$(BUILD_DIR)/$(MOD).core.js: lib/index.js $(SRC_FILES) | unit-test
 	@$(BROWSERIFY) $< > $@ --no-bundle-external -s dagre
 
 $(BUILD_DIR)/$(MOD).core.min.js: $(BUILD_DIR)/$(MOD).core.js
 	@$(UGLIFY) $< --comments '@license' > $@
 
-# dist: $(BUILD_FILES) | bower.json test
-dist: $(BUILD_FILES)
+dist: $(BUILD_FILES) | bower.json test
 	@rm -rf $@
 	@mkdir -p $@
 	@cp $^ dist

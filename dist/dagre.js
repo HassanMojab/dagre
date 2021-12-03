@@ -1,39 +1,4 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.dagre = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-/*
-Copyright (c) 2012-2014 Chris Pettitt
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-*/
-
-module.exports = {
-  graphlib: require("./lib/graphlib"),
-
-  layout: require("./lib/layout"),
-  debug: require("./lib/debug"),
-  util: {
-    time: require("./lib/util").time,
-    notime: require("./lib/util").notime
-  },
-  version: require("./lib/version")
-};
-
-},{"./lib/debug":6,"./lib/graphlib":7,"./lib/layout":9,"./lib/util":30,"./lib/version":31}],2:[function(require,module,exports){
 "use strict";
 
 var _ = require("./lodash");
@@ -102,7 +67,7 @@ function undo(g) {
   });
 }
 
-},{"./greedy-fas":8,"./lodash":10}],3:[function(require,module,exports){
+},{"./greedy-fas":7,"./lodash":10}],2:[function(require,module,exports){
 var _ = require("./lodash");
 var util = require("./util");
 
@@ -142,7 +107,7 @@ function addBorderNode(g, prop, prefix, sg, sgNode, rank) {
   }
 }
 
-},{"./lodash":10,"./util":30}],4:[function(require,module,exports){
+},{"./lodash":10,"./util":30}],3:[function(require,module,exports){
 "use strict";
 
 var _ = require("./lodash");
@@ -216,7 +181,7 @@ function swapXYOne(attrs) {
   attrs.y = x;
 }
 
-},{"./lodash":10}],5:[function(require,module,exports){
+},{"./lodash":10}],4:[function(require,module,exports){
 /*
  * Simple doubly linked list implementation derived from Cormen, et al.,
  * "Introduction to Algorithms".
@@ -274,7 +239,7 @@ function filterOutLinks(k, v) {
   }
 }
 
-},{}],6:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 var _ = require("./lodash");
 var util = require("./util");
 var Graph = require("./graphlib").Graph;
@@ -310,7 +275,7 @@ function debugOrdering(g) {
   return h;
 }
 
-},{"./graphlib":7,"./lodash":10,"./util":30}],7:[function(require,module,exports){
+},{"./graphlib":6,"./lodash":10,"./util":30}],6:[function(require,module,exports){
 // eslint-disable-next-line no-redeclare
 /* global window */
 
@@ -330,7 +295,7 @@ if (!graphlib) {
 
 module.exports = graphlib;
 
-},{"graphlib":32}],8:[function(require,module,exports){
+},{"graphlib":32}],7:[function(require,module,exports){
 var _ = require("./lodash");
 var Graph = require("./graphlib").Graph;
 var List = require("./data/list");
@@ -450,7 +415,42 @@ function assignBucket(buckets, zeroIdx, entry) {
   }
 }
 
-},{"./data/list":5,"./graphlib":7,"./lodash":10}],9:[function(require,module,exports){
+},{"./data/list":4,"./graphlib":6,"./lodash":10}],8:[function(require,module,exports){
+/*
+Copyright (c) 2012-2014 Chris Pettitt
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*/
+
+module.exports = {
+  graphlib: require("./graphlib"),
+
+  layout: require("./layout"),
+  debug: require("./debug"),
+  util: {
+    time: require("./util").time,
+    notime: require("./util").notime
+  },
+  version: require("./version")
+};
+
+},{"./debug":5,"./graphlib":6,"./layout":9,"./util":30,"./version":31}],9:[function(require,module,exports){
 "use strict";
 
 var _ = require("./lodash");
@@ -890,7 +890,7 @@ function canonicalize(attrs) {
   return newAttrs;
 }
 
-},{"./acyclic":2,"./add-border-segments":3,"./coordinate-system":4,"./graphlib":7,"./lodash":10,"./nesting-graph":11,"./normalize":12,"./order":17,"./order/init-data-order":18,"./parent-dummy-chains":23,"./position":25,"./rank":27,"./util":30}],10:[function(require,module,exports){
+},{"./acyclic":1,"./add-border-segments":2,"./coordinate-system":3,"./graphlib":6,"./lodash":10,"./nesting-graph":11,"./normalize":12,"./order":17,"./order/init-data-order":18,"./parent-dummy-chains":23,"./position":25,"./rank":27,"./util":30}],10:[function(require,module,exports){
 // eslint-disable-next-line no-redeclare
 /* global window */
 
@@ -1323,16 +1323,16 @@ function createRootNode(g) {
   return v;
 }
 
-},{"../graphlib":7,"../lodash":10}],16:[function(require,module,exports){
-"use strict";
+},{"../graphlib":6,"../lodash":10}],16:[function(require,module,exports){
+'use strict';
 
-var _ = require("../lodash");
+var _ = require('../lodash');
 
 module.exports = crossCount;
 
 /*
  * A function that takes a layering (an array of layers, each with an array of
- * ordererd nodes) and a graph and returns a weighted crossing count.
+ * ordered nodes) and a graph and returns a weighted crossing count.
  *
  * Pre-conditions:
  *
@@ -1349,7 +1349,7 @@ module.exports = crossCount;
 function crossCount(g, layering) {
   var cc = 0;
   for (var i = 1; i < layering.length; ++i) {
-    cc += twoLayerCrossCount(g, layering[i-1], layering[i]);
+    cc += twoLayerCrossCount(g, layering[i - 1], layering[i]);
   }
   return cc;
 }
@@ -1358,36 +1358,50 @@ function twoLayerCrossCount(g, northLayer, southLayer) {
   // Sort all of the edges between the north and south layers by their position
   // in the north layer and then the south. Map these edges to the position of
   // their head in the south layer.
-  var southPos = _.zipObject(southLayer,
-    _.map(southLayer, function (v, i) { return i; }));
-  var southEntries = _.flatten(_.map(northLayer, function(v) {
-    return _.sortBy(_.map(g.outEdges(v), function(e) {
-      return { pos: southPos[e.w], weight: g.edge(e).weight };
-    }), "pos");
-  }), true);
+  var southPos = _.zipObject(
+    southLayer,
+    _.map(southLayer, function (v, i) {
+      return i;
+    })
+  );
+  var southEntries = _.flatten(
+    _.map(northLayer, function (v) {
+      return _.sortBy(
+        _.map(g.outEdges(v), function (e) {
+          return { pos: southPos[e.w], weight: g.edge(e).weight };
+        }),
+        'pos'
+      );
+    }),
+    true
+  );
 
   // Build the accumulator tree
   var firstIndex = 1;
   while (firstIndex < southLayer.length) firstIndex <<= 1;
   var treeSize = 2 * firstIndex - 1;
   firstIndex -= 1;
-  var tree = _.map(new Array(treeSize), function() { return 0; });
+  var tree = _.map(new Array(treeSize), function () {
+    return 0;
+  });
 
   // Calculate the weighted crossings
   var cc = 0;
-  _.forEach(southEntries.forEach(function(entry) {
-    var index = entry.pos + firstIndex;
-    tree[index] += entry.weight;
-    var weightSum = 0;
-    while (index > 0) {
-      if (index % 2) {
-        weightSum += tree[index + 1];
-      }
-      index = (index - 1) >> 1;
+  _.forEach(
+    southEntries.forEach(function (entry) {
+      var index = entry.pos + firstIndex;
       tree[index] += entry.weight;
-    }
-    cc += entry.weight * weightSum;
-  }));
+      var weightSum = 0;
+      while (index > 0) {
+        if (index % 2) {
+          weightSum += tree[index + 1];
+        }
+        index = (index - 1) >> 1;
+        tree[index] += entry.weight;
+      }
+      cc += entry.weight * weightSum;
+    })
+  );
 
   return cc;
 }
@@ -1487,7 +1501,7 @@ function assignOrder(g, layering) {
   });
 }
 
-},{"../graphlib":7,"../lodash":10,"../util":30,"./add-subgraph-constraints":13,"./build-layer-graph":15,"./cross-count":16,"./init-order":19,"./sort-subgraph":21}],18:[function(require,module,exports){
+},{"../graphlib":6,"../lodash":10,"../util":30,"./add-subgraph-constraints":13,"./build-layer-graph":15,"./cross-count":16,"./init-order":19,"./sort-subgraph":21}],18:[function(require,module,exports){
 "use strict";
 
 var _ = require("../lodash");
@@ -2363,7 +2377,7 @@ function width(g, v) {
   return g.node(v).width;
 }
 
-},{"../graphlib":7,"../lodash":10,"../util":30}],25:[function(require,module,exports){
+},{"../graphlib":6,"../lodash":10,"../util":30}],25:[function(require,module,exports){
 "use strict";
 
 var _ = require("../lodash");
@@ -2556,7 +2570,7 @@ function shiftRanks(t, g, delta) {
   });
 }
 
-},{"../graphlib":7,"../lodash":10,"./util":29}],27:[function(require,module,exports){
+},{"../graphlib":6,"../lodash":10,"./util":29}],27:[function(require,module,exports){
 "use strict";
 
 var rankUtil = require("./util");
@@ -2843,7 +2857,7 @@ function isDescendant(tree, vLabel, rootLabel) {
   return rootLabel.low <= vLabel.lim && vLabel.lim <= rootLabel.lim;
 }
 
-},{"../graphlib":7,"../lodash":10,"../util":30,"./feasible-tree":26,"./util":29}],29:[function(require,module,exports){
+},{"../graphlib":6,"../lodash":10,"../util":30,"./feasible-tree":26,"./util":29}],29:[function(require,module,exports){
 "use strict";
 
 var _ = require("../lodash");
@@ -3239,8 +3253,8 @@ function notime(name, fn) {
   return fn();
 }
 
-},{"./graphlib":7,"./lodash":10}],31:[function(require,module,exports){
-module.exports = "0.2.1";
+},{"./graphlib":6,"./lodash":10}],31:[function(require,module,exports){
+module.exports = "0.1.0";
 
 },{}],32:[function(require,module,exports){
 /**
@@ -11838,5 +11852,5 @@ function zipObject(props, values) {
 
 module.exports = zipObject;
 
-},{"./_assignValue":76,"./_baseZipObject":132}]},{},[1])(1)
+},{"./_assignValue":76,"./_baseZipObject":132}]},{},[8])(8)
 });
