@@ -3254,7 +3254,7 @@ function notime(name, fn) {
 }
 
 },{"./graphlib":6,"./lodash":10}],31:[function(require,module,exports){
-module.exports = "0.1.0";
+module.exports = "0.1.1";
 
 },{}]},{},[8])(8)
 });
