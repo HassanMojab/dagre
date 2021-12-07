@@ -56,13 +56,13 @@ $(BUILD_DIR)/$(MOD).js: lib/index.js $(SRC_FILES) | unit-test
 	@$(BROWSERIFY) $< > $@ -s dagre
 
 $(BUILD_DIR)/$(MOD).min.js: $(BUILD_DIR)/$(MOD).js
-	@$(UGLIFY) $< --comments '@license' > $@
+	@$(UGLIFY) $< --comments > $@
 
 $(BUILD_DIR)/$(MOD).core.js: lib/index.js $(SRC_FILES) | unit-test
 	@$(BROWSERIFY) $< > $@ --no-bundle-external -s dagre
 
 $(BUILD_DIR)/$(MOD).core.min.js: $(BUILD_DIR)/$(MOD).core.js
-	@$(UGLIFY) $< --comments '@license' > $@
+	@$(UGLIFY) $< --comments > $@
 
 dist: $(BUILD_FILES) | bower.json test
 	@rm -rf $@

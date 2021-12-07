@@ -417,6 +417,7 @@ function assignBucket(buckets, zeroIdx, entry) {
 
 },{"./data/list":4,"./graphlib":6,"./lodash":10}],8:[function(require,module,exports){
 /*
+@license
 Copyright (c) 2012-2014 Chris Pettitt
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -3254,7 +3255,7 @@ function notime(name, fn) {
 }
 
 },{"./graphlib":6,"./lodash":10}],31:[function(require,module,exports){
-module.exports = "0.1.1";
+module.exports = "0.1.2-pre";
 
 },{}],32:[function(require,module,exports){
 /**

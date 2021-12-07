@@ -1,7 +1,9 @@
 {
   "name": "dagre",
-  "version": "0.1.1",
-  "main": ["dist/dagre.core.js"],
+  "version": "0.1.2-pre",
+  "main": [
+    "dist/dagre.core.js"
+  ],
   "ignore": [
     ".*",
     "README.md",
